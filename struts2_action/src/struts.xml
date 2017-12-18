@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	 <constant name="struts.devMode" value="true" /> 
+
+	<package name="hello" namespace="/" extends="struts-default">
+		
+		<!-- 
+			action
+				name：action的访问路径
+				class:action的全类名
+				method:类中的方法名称	
+		 -->
+		<action name="helloAction" class="com.xjw.action.HelloAction2" method="hello">
+			<!-- 
+				name:方法的返回值 
+				节点中间的内容：跳转的指定页面
+			-->
+			<result name="success">ok.jsp</result>
+		</action>
+		
+	</package>
+	
+
+
+</struts>

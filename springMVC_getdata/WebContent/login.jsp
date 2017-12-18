@@ -8,6 +8,10 @@
 <base href="<%=request.getContextPath()+"/"%>">
 </head>
 <body>
-<a href="hello">hello</a>
+<form action="login2" method="post">
+	username:<input type="username" name="username"/>
+	password:<input type="password" name="password"/>
+	<input type="submit" value="submit"/>
+</form>
 </body>
 </html>

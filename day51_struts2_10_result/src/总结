@@ -1,0 +1,11 @@
+
+
+1.resultType
+	1)dispatcher
+		a)只能转发到页面，不能转发到action
+	2)chain
+		a)只能转发到action，不能转发到页面
+	3)redirect
+		a)既可以重定向到页面又可以重定向到action
+	4)redirectActin
+		a)指定重定向到Action

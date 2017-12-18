@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 动态开发模式 -->
+	<constant name="struts.devMode" value="true" />
+
+	<package name="user" namespace="/" extends="struts-default">
+
+		<!-- 默认的Action，用户在请求没有定义的aciton的时候就会调用默认的action -->
+<!-- 		<default-action-ref name="def"></default-action-ref> -->
+
+		<action name="add" class="com.qf.action.UserAction" method="add">
+			<!-- result节点中的name属性不写默认是success -->
+<!-- 			<result type="redirect">ok.jsp</result> -->
+
+			<!-- redirect:可以重定向到页面，可以重定向到Action -->
+<!-- 			<result type="redirect">query</result> -->
+
+			<!--redirectAction 只能重定向到Actin，不能重定向页面 -->
+<!-- 			<result type="redirectAction">ok.jsp</result> -->
+
+			<!-- dispatcher 只能转发到也页面 ，不能转发到Action -->
+<!-- 			<result >query</result> -->
+
+			<!-- 只能转发到Action，不能转发到页面 -->
+			<result type="chain">query</result>
+		</action>
+		
+		<action name="query" class="com.qf.action.UserAction" method="query">
+			<result>ok.jsp</result>
+		</action>
+
+		<action name="def" class="com.qf.action.UserAction" method="def">
+			<result>ok.jsp</result>
+		</action>
+
+
+	</package>
+</struts>

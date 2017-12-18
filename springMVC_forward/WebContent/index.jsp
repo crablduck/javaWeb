@@ -8,6 +8,9 @@
 <base href="<%=request.getContextPath()+"/"%>">
 </head>
 <body>
-${msg }
+<a href="hello">hello</a>
+<a href="hello1">hello1</a>
+<a href="hello2">hello2</a>
+<a href="hello3">hello3</a>
 </body>
 </html>

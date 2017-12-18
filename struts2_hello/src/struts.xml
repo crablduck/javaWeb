@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	 <constant name="struts.devMode" value="true" /> 
+
+<!-- 		http://localhost:8080/day51_struts2_01_hello/helloAction -->
+<!-- 		http://localhost:8080/day51_struts2_01_hello/hello/helloAction -->
+<!-- 	<package name="hello" namespace="hello/" extends="struts-default"> -->
+<!-- 	<package name="user" namespace="user/" extends="struts-default"> -->
+	<package name="hello" namespace="/" extends="struts-default">
+		
+		<!-- 
+			action
+				name：action的访问路径
+				class:action的全类名
+				method:类中的方法名称	
+		 -->
+		<action name="helloAction" class="com.xjw.action.HelloAction" method="hello">
+			<!-- 
+				name:方法的返回值 
+				节点中间的内容：跳转的指定页面
+			-->
+			<result name="success">ok.jsp</result>
+		</action>
+		
+	</package>
+	
+<!-- 	<package name="teacher" namespace="teacher/" extends="struts-default"> -->
+		
+<!-- 		<action name="add" class="com.qf.action.HelloAction" method="hello"> -->
+<!-- 			<result name="success">ok.jsp</result> -->
+<!-- 		</action> -->
+		
+<!-- 	</package> -->
+
+</struts>

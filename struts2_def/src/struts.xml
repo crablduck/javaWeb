@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	 <constant name="struts.devMode" value="true" /> 
+	 
+	<package name="user" namespace="/" extends="struts-default">
+	
+		<!-- defaultAction-ref -->
+		<default-action-ref name="def"></default-action-ref>
+	
+		<action name="add" class="com.xjw.action.UserAction" method="add">
+			<result name="success">ok.jsp</result>
+		</action>
+		
+		<action name="def" class="com.xjw.action.UserAction" method="def">
+			<result name="success">ok.jsp</result>
+		</action>
+		
+		<action name="update" class="com.xjw.action.UserAction" method="update">
+			<result name="success">ok.jsp</result>
+		</action>
+		
+		<action name="delete" class="com.xjw.action.UserAction" method="delete">
+			<result name="success">ok.jsp</result>
+		</action>
+	</package>
+	
+
+</struts>

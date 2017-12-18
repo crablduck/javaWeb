@@ -15,7 +15,6 @@
 			-->
 			<result name="success">{2}.jsp</result>
 		</action>
-		
 	</package>
 	
 

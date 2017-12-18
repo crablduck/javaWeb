@@ -15,12 +15,13 @@
 				class:action的全类名
 				method:类中的方法名称	
 		 -->
-		<action name="helloAction" class="com.xjw.action.HelloAction" method="hello">
+		<action name="login" class="com.xjw.action.LoginAction" method="login">
 			<!-- 
 				name:方法的返回值 
 				节点中间的内容：跳转的指定页面
 			-->
 			<result name="success">ok.jsp</result>
+			<result name="input">login.jsp</result>
 		</action>
 		
 	</package>

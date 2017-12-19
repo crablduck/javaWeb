@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!--
+		 这边要开启注解驱动进行，虽然这个注解驱动在用requestMapping的时候不用开启 但建议直接开启
+		里面他们配置的一些关系还是不明白， 这个只能查手册了。
+		
+		在这之前当然导入jar包， jar要通过maven进行查找， 网上进行查找比较麻烦， 建议在手册里面好好看
+		1. 配置注解驱动， 释放静态资源， 
+		2. 配置mappingjackson
+		3. 配置annotationMethodHandleAdapter
+	 -->
+
+	<!-- 开启注解驱动 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+
+	<!-- 释放静态资源 -->
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+
+	<!-- 开启包扫描 -->
+	<context:component-scan base-package="com.xjw.controller"></context:component-scan>
+
+	<!-- 配置视图解析器 -->
+	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 用jstl事务解析器 -->
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		
+		<!-- 将视图名 渲染后视图的前缀 -->
+		<property name="prefix" value="/" />
+		
+		<!-- 渲染后视图的后缀 -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+		<!-- 配置支持JSON格式的转换器 -->
+		<!-- 定义jackson -->
+		<bean id="jsonConverter"
+			class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+			
+		<!-- 进行注解扫描 -->
+		<bean
+			class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+			<property name="messageConverters">
+				<list>
+					<ref bean="jsonConverter" />
+				</list>
+			</property>
+		</bean>
+
+</beans>

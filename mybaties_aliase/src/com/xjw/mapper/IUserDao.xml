@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace指的就是接口的全类名 -->
+<mapper namespace="com.xjw.dao.IUserDao">
+
+	<!-- 
+		id:方法名称
+		resultType:返回类型
+	 -->
+	<select id="getUserById" resultType="user"> 
+		select * from tb_user where id = #{id}
+	</select>
+	
+	<insert id="add" parameterType="user">
+		insert into tb_user(name,password) values(#{name},#{password})
+	</insert>
+	
+	<delete id="delete">
+		delete from tb_user where id=#{id} 
+	</delete>
+	
+	<update id="update" parameterType="user">
+		update tb_user set name=#{name}, password=#{password} where id=#{id}
+	</update>
+	
+	<select id="list" resultType="user">
+		select * from tb_user
+	</select>
+</mapper>

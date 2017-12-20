@@ -1,0 +1,7 @@
+
+
+
+1.log4j
+	1)ERROR>WARN>INFO>DEBUG
+	2)开发中用debug上线有ERROR
+	3)会改log4j.properties

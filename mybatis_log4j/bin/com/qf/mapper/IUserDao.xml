@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace指的就是接口的全类名 -->
+<mapper namespace="com.qf.dao.IUserDao">
+
+	<!-- 
+		id:方法名称
+		resultType:返回类型
+	 -->
+	<select id="getUserById" resultType="com.qf.entity.User"> 
+		select * from t_user where id = #{id}
+	</select>
+	
+	<!-- parameterType:方法的参数类型  -->
+	<insert id="add" parameterType="com.qf.entity.User">
+		insert into t_user (name,password) values(#{name},#{password})
+	</insert>
+	
+	<update id="update">
+		update t_user set name = #{name},password = #{password} where id = #{id} 
+	</update>
+	
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from t_user where id = #{id}
+	</delete>
+	
+	<!-- 
+		方法返回集合的时候resultType要配置集合中的类型
+	 -->
+	<select id="getUserList" resultType="com.qf.entity.User">
+		select * from t_user
+	</select>
+	
+	
+</mapper>

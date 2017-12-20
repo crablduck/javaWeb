@@ -1,0 +1,19 @@
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.logging.LogFactory:135 - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource:316 - PooledDataSource forcefully closed/removed all connections.
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource:316 - PooledDataSource forcefully closed/removed all connections.
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource:316 - PooledDataSource forcefully closed/removed all connections.
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource:316 - PooledDataSource forcefully closed/removed all connections.
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction:138 - Opening JDBC Connection
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource:387 - Created connection 28880887.
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction:102 - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@1b8aff7]
+2017-11-09 14:17:59 DEBUG com.qf.dao.IUserDao.getUserById:142 - ==>  Preparing: select * from t_user where id = ? 
+2017-11-09 14:17:59 DEBUG com.qf.dao.IUserDao.getUserById:142 - ==> Parameters: 9(Integer)
+2017-11-09 14:17:59 DEBUG com.qf.dao.IUserDao.getUserById:142 - <==      Total: 1
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction:124 - Resetting autocommit to true on JDBC Connection [com.mysql.jdbc.JDBC4Connection@1b8aff7]
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction:92 - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@1b8aff7]
+2017-11-09 14:17:59 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource:344 - Returned connection 28880887 to pool.
+2017-11-09 14:17:59 DEBUG com.qf.dao.UserDaoTest:27 - debug级别
+2017-11-09 14:17:59 DEBUG com.qf.dao.UserDaoTest:28 - 李四1
+2017-11-09 14:17:59 INFO com.qf.dao.UserDaoTest:29 - info级别
+2017-11-09 14:17:59 WARN com.qf.dao.UserDaoTest:30 - warn级别
+2017-11-09 14:17:59 ERROR com.qf.dao.UserDaoTest:31 - error级别

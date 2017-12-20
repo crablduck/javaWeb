@@ -26,8 +26,13 @@ public class UserDaoTest {
 			//获得session
 			SqlSession session = sqlSessionFactory.openSession();
 			
-			IUserDao mapper = session.getMapper(IUserDao.class);
-			User userById = mapper.getUserById(7);
+			
+			//1. 用全类名.方法名，  加参数    2.session后面的方法是mybaties厂家提供，  这是老且不好用的方法
+			User userById = session.selectOne("com.xjw.dao.IUserDao.getUserById", 7);
+			
+			//1.这是用接口的class对象作为参数获取mapper，进而获取方法进行获取数据。  新方法且好用
+//			IUserDao mapper = session.getMapper(IUserDao.class);
+//			User userById = mapper.getUserById(7);
 			System.out.println(userById);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

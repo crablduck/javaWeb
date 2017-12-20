@@ -1,0 +1,7 @@
+
+
+
+1.日期的处理
+	1)@DateTimeFormat
+		a)pattern:时间格式化参数
+	2)要开启注解驱动

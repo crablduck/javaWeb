@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace指的就是接口的全类名 -->
+<mapper namespace="com.xjw.dao.IUserDao">
+
+	<sql id="common_columns">
+		id, name, password, is_admin as isAdmin
+	</sql>
+
+<!-- 	<resultMap type="user" id="userMap"> -->
+<!-- 		<id column="id" property="id"/> -->
+<!-- 		<result column="name" property="name"/> -->
+<!-- 		<result column="password" property="password"/> -->
+<!-- 		<result column="is_admin" property="isAdmin"/> -->
+<!-- 	</resultMap> -->
+	<!-- 
+		id:方法名称
+		resultType:返回类型
+	 -->
+	<select id="getUserById" resultType="user"> 
+		select <include refid="common_columns"></include> from tb_user where id = #{id}
+	</select>
+	
+<!-- 	<insert id="add" parameterType="user"> -->
+<!-- 		insert into tb_user(name,password,is_admin) values(#{name},#{password},#{isAdmin}) -->
+<!-- 	</insert> -->
+	
+<!-- 	<delete id="delete"> -->
+<!-- 		delete from tb_user where id=#{id}  -->
+<!-- 	</delete> -->
+	
+<!-- 	<update id="update" parameterType="user"> -->
+<!-- 		update tb_user set name=#{name}, password=#{password}, is_admin=#{isAdmin} where id=#{id} -->
+<!-- 	</update> -->
+	
+<!-- 	<select id="list" resultMap="userMap"> -->
+<!-- 		select * from tb_user -->
+<!-- 	</select> -->
+</mapper>

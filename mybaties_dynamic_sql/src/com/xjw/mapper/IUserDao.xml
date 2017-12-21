@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace指的就是接口的全类名 -->
+<mapper namespace="com.xjw.dao.IUserDao">
+
+	<resultMap type="user" id="userMap">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="password" property="password" />
+		<result column="is_admin" property="isAdmin" />
+	</resultMap>
+	<!-- 1. 关于if 的动态sql， 因为动态的原则， 我们需要加上and 可是and不能加在最开头， 所以我们需要加一个1=1进行 2. 
+		关于这个动态sql的原理， 其实就是在拼接那里做文章， 用if进行判断， 完成了动态实现sql的功能， 而不用我们复杂地去jdbc进行动态sql的实现 -->
+	<select id="andIf" resultMap="userMap">
+		select * from tb_user where 1=1
+		<if test="name != null and name != ''">
+			and name=#{name}
+		</if>
+		<if test="password != null and password != ''">
+			and password=#{password}
+		</if>
+	</select>
+	
+	<!-- about dynamic in where -->
+	<select id="andWhere" resultMap="userMap">
+		select * from tb_user
+		<where>
+			<if test="name != null and name != ''">
+				and name=#{name}
+			</if>
+			<if test="password != null and password != ''">
+				and password=#{password}
+			</if>
+		</where>
+	</select>
+
+	
+	<!-- about dynamic in trim -->
+	<select id="andTrim" resultMap="userMap">
+		select * from tb_user
+		<trim prefix="where" prefixOverrides="and">
+			<if test="name != null and name != ''">
+				and name=#{name}
+			</if>
+			<if test="password != null and password != ''">
+				and password=#{password}
+			</if>
+		</trim>
+	</select>
+	
+	<!-- about dynamic in trim -->
+	<select id="andChoose" resultMap="userMap">
+		select * from tb_user where 1=1 
+		<choose>
+			<when test="name != null and name != ''">
+				and name=#{name}
+			</when>
+			<when test="password != null and password != ''">
+				and password=#{password}
+			</when>
+		</choose>
+	</select>
+	
+	<insert id="add" parameterType="user">
+		insert into
+		tb_user(name,password,is_admin) values(#{name},#{password},#{isAdmin})
+	</insert>
+
+	<!-- 这里foreach xml配置完全不变， 只要在dao层那里参数类型进行变化， 然后在测试类那里传参数的时候进行变化 -->
+	<delete id="delete">
+		delete from tb_user where id in
+		<foreach collection="list" item="id" open="(" close=")" separator=",">
+			#{id}
+		</foreach>
+	</delete>
+
+	<update id="update" parameterType="user">
+		update tb_user 
+		<set>
+			<if test="name != null and name != ''">
+				 name=#{name},
+			</if>
+			<if test="password != null and password != ''">
+				password=#{password},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+
+	<select id="list" resultMap="userMap">
+		select * from tb_user
+	</select>
+</mapper>

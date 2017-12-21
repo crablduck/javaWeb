@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qf.dao.IAccountDao">
+
+	<insert id="add" parameterType="account">
+		insert into tb_account (name,balance) values(#{name},#{balance})
+	</insert>
+	
+	<update id="update" parameterType="account">
+		update tb_account
+		<set>
+			<if test="name != null and name !=''">
+				name = #{name},
+			</if>
+			<if test="balance != null and balance !=''">
+				balance = #{balance},
+			</if>
+		</set>
+		where id = #{id}		
+	</update>
+
+
+	<delete id="delete">
+		delete from tb_account where id = #{id}
+	</delete>
+	
+	<select id="getList" resultType="account">
+		select * from tb_account limit #{startIndex},#{size}
+	</select>
+	
+	<select id="getCount" resultType="java.lang.Integer">
+		select count(1) from tb_account 
+	</select>
+	
+	<select id="getById" resultType="account">
+		select * from tb_account where id = #{id}
+	</select>
+
+</mapper>

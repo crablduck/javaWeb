@@ -1,0 +1,16 @@
+
+
+1.Spring和MyBatis整合
+	1)导入spring-mybatis.jar
+	2)整合
+		a)org.mybatis.spring.SqlSessionFactoryBean
+			1)dataSource
+			2)myBatis的配置文件
+	3)事务管理器用DataSourceTransctionManager
+	4)dao层
+		1)SqlSessoinTemplate
+		2)SqlSessionDaoSupport
+	5)自动生成dao层的代理类
+		1)org.mybatis.spring.mapper.MapperScannerConfigurer
+			1)接口的全全类名
+			2)配置sqlSessionFactory名字 

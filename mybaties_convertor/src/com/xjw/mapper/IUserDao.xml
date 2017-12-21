@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace指的就是接口的全类名 -->
+<mapper namespace="com.xjw.dao.IUserDao">
+
+	<!-- 手动设置转换，enum to number -->
+	<insert id="add" parameterType="user">
+		insert into tb_user(name, password,is_admin) values(#{name}, #{password}, #{isAdmin,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler})
+	</insert>
+	
+	<!-- 自动转换， enume  to String -->
+	<insert id="add" parameterType="user">
+		insert into tb_user(name, password,is_admin) values(#{name}, #{password}, #{isAdmin})
+	</insert>
+	
+</mapper>

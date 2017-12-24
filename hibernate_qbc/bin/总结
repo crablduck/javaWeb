@@ -1,0 +1,16 @@
+
+
+
+1.QBC
+	1)Query By Criteria(条件查询)
+	2)也是面向对象查询语句
+	3)如何使用
+		a)ssssion.createCriteria(Customer.class);
+		b)集合
+		c)单个对象查询
+		d)分页
+		d)排序
+		e)模糊查询
+		f)离线查询
+			1)提高性能(可以减少session和数据库的会话时间)
+		

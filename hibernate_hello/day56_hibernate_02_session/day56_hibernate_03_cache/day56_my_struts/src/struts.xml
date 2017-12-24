@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<struts>
+	<action name="addAction" class="com.qf.action.UserAction"
+		method="add">
+		<result name = "success">ok.jsp</result>
+		<result name = "error" type="redirect">ok.jsp</result>
+	</action>
+
+	<action name="updateAction" class="com.qf.action.UserAction" method="update">
+		<result name="success">ok.jsp</result>
+	</action>
+</struts>

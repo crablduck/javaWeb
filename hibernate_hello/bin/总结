@@ -1,0 +1,27 @@
+
+
+1.ORM
+	1)对象关系映射
+	2)ORM组件有哪些
+		a)jdbc
+		b)hibernate
+		c)MyBatis
+		d)SpringData
+2.hibernate环境搭建
+	1)导入相关jar包
+	2)配置文件(使用手册里面去找)
+		a)hibernate.cfg.xml
+			1)最核心的一个配置文件
+			2)连接数据库的参数，和hibernate的一个属性
+		2)映射文件
+			1)命名：实体类名.hbm.xml
+			2)位置：和实体类放在一起
+	3)工具类(使用手册里面去找)
+	4)操作数据库的流程
+		a)获取sessionFactory
+		b)通过sessionFactory创建session
+		c)开启事务
+		d)操作数据库
+		e)提交事务
+		
+3.主键生成策略

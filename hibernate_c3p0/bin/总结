@@ -1,0 +1,21 @@
+
+
+
+1.c3p0
+	1)导入jar包
+	2)配置
+		a)在Hibernate.cfg.xml中配置c3p0
+		b)还要配置c3p0的参数
+	3)原理要能讲的出来
+2.事务特性
+	1)原子性
+	2)一致性
+	3)隔离性
+	4)持久性
+3.隔离级别
+	1)MySQL的默认隔离级别是4
+	2)用jdbc如何修改默认的隔离级别
+		a)connection.setTransactionIsolation(4)
+	2)HIbernate如何修改默认的隔离级别
+		a)在配置文件
+			1)<property name="hibernate.connection.isolation">4</property>

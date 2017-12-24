@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	
+	<package name="default" namespace="/customer" extends="struts-default">
+	
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.qf.interceptor.LoginInterceptor"></interceptor>
+			
+			<interceptor-stack name="myStack">
+					<interceptor-ref name="defaultStack"></interceptor-ref>
+					<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+	
+		<default-interceptor-ref name="myStack"/>
+		
+		<action name="findCustomerList" class="com.qf.action.CustomerAction" method="findCustomerList">
+			<result>../customerlist.jsp</result>
+			<result name="login">../login.jsp</result>
+			<result name="error">../login.jsp</result>
+		</action>
+		
+		<action name="findCustomerById" class="com.qf.action.CustomerAction" method="findCustomerById">
+			<result>../ordersinfo.jsp</result>
+			<result name="login">../login.jsp</result>
+			<result name="error">../login.jsp</result>
+		</action>
+		
+		<action name="addCustomer" class="com.qf.action.CustomerAction" method="addCustomer">
+			<result type="redirectAction">../customer/findCustomerById?customer.id=${customer.id}</result>
+			<result name="error">../addcustomer.jsp</result>
+		</action>
+		
+		<action name="login" class="com.qf.action.CustomerAction" method="login">
+			<result>../index.jsp</result>
+			<result name="login">../login.jsp</result>
+			<result name="error">../login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="default" namespace="/order" extends="struts-default">
+	
+		<action name="findOrderInfoList" class="com.qf.action.OrderInfoAction" method="findOrderInfoList">
+			<result name="input">../ok.jsp</result>
+			<result name="login">../login.jsp</result>
+		</action>
+	</package>
+</struts>

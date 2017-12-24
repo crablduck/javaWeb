@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.qf.entity">
+
+	<class name="Teacher" table="t_teacher">
+		<id name="id" column="t_id">
+			<!-- 主键生成策略 -->
+			<generator class="native" />
+		</id>
+		<property name="name" column="t_name" />
+
+		<!-- 多对多的关系要指定中间表 -->
+		<set name="classes" table="t_class_teacher" cascade="all">
+			<!-- 配置当前表的外键 -->
+			<key column="t_id"/>
+			<!-- 配置另一方的外键 -->
+			<many-to-many column="c_id" class="com.qf.entity.Classes"></many-to-many>
+		</set>
+	</class>
+
+</hibernate-mapping>

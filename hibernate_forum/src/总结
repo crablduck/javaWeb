@@ -1,0 +1,17 @@
+
+
+1.Hibernate和Struts2的整合
+	1)先搭建strtus2环境
+		a)导入jar包
+		b)配置文件
+		c)核心的filter
+		d)HelloAction
+	2)在Hibernate的环境
+		a)导入jar包
+		b)配置文件
+		c)Hibernate启动工具类
+		d)做单元测试
+	3)整合
+		a)OpenSessionInviewFilter(重点)
+			1)要定义在struts2核心的filter的上面
+			2)流程

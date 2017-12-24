@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- 链接数据库的四个参数 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql:///1707_hibernate</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+
+		<!-- 连接池 -->
+		<property name="connection.pool_size">1</property>
+
+		<!-- 数据库方言，用什么数据库就要用什么方言，去etc/下面的hibernate.properties找 -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<!-- session和当前线程绑定 -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- 开启二级缓存 -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		
+		<!-- 确定二级缓存的供应商 -->
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		
+		<!-- 开启查询缓存 -->
+		<property name="hibernate.cache.use_query_cache">true</property>
+		
+		<!-- 是否显示sql -->
+		<property name="show_sql">true</property>
+		
+		<!-- 格式化sql -->
+		<property name="format_sql">true</property>
+
+		<!-- DDL,update:如果有表用，没有hibernate帮我们穿件-->
+		<property name="hbm2ddl.auto">update</property>
+
+		<!-- 添加映射文件 -->
+		<mapping resource="com/qf/entity/Customer.hbm.xml" />
+		<mapping resource="com/qf/entity/OrderInfo.hbm.xml" />
+		
+		<!-- 配置缓存对象 -->
+			<!-- 
+				usage
+					1)read-only:缓存中的数据只能读取，如果要改变就抛出异常
+					2)read-write:缓存中的数据既能读取也能修改
+			 -->
+		<class-cache usage="read-only" class="com.qf.entity.Customer"/>
+		<class-cache usage="read-only" class="com.qf.entity.OrderInfo"/>
+		<!--如果要缓存多的一方，不仅要把多的一方的对象配置进来还要把一的一方保存多的一方的集合也要配进来 -->
+		<collection-cache usage="read-only" collection="com.qf.entity.Customer.orderInfos"/>
+	</session-factory>
+
+</hibernate-configuration>

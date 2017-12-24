@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- 这个配置文件就可以建立对象和表的关系(ORM)-->
+<!-- 实体类包名 -->
+<hibernate-mapping package="com.qf.entity">
+
+	<class name="Customer" table="t_customer">
+		<id name="id" column="id">
+			<!-- 主键生成策略 -->
+			<generator class="native" />
+		</id>
+		<property name="name"/>
+		
+		<!-- 
+			配置一对多 
+			name:一个一方中保存多的一方的属性名称
+			inverse="true",维护外键的权限交给了多的一方
+			
+			cascade:级联属性
+			all=save-update,delete
+		-->
+		<set name="orderInfos" inverse="true" cascade="delete-orphan" >
+			<!-- 配置关联表的外键 -->
+			<key column="customer_id"/>
+			<!-- 配置多个的一方的全类名 -->
+			<one-to-many class="com.qf.entity.OrderInfo"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

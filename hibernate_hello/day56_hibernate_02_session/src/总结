@@ -1,0 +1,9 @@
+
+
+1.获取session的两种方式
+	1)getCurrentSession
+		a)如果当前线程中没有session就创建新的sesion，如果有几直接返回
+		b)必须要把线程和session绑定，在hibernate.cfg.xml中设置
+			1)<property name="current_session_context_class">thread</property>
+	2)opeSession
+		a)每次都新创建一个session

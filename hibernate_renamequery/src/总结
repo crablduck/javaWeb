@@ -1,0 +1,13 @@
+
+
+1.命名查询
+	1)HQL语句放到了映射文件
+	2)局部命名查询
+		a)定义：在class节点里面
+		b)如何调用
+			1)session.getNameQuery("namespace.class.queryName")
+	3)全局的命名查询
+		a)定义：在class节点外面
+		b)如何调用
+			1)session.getNameQuery("queryName")
+	4)HQL语句里面不能出现*号

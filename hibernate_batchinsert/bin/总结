@@ -1,0 +1,8 @@
+
+
+
+1.批量操作
+	1)在进行批量操作的时候要绕过HibernateAPI利用jdbc操作
+	2)save(),flush();commit();
+	3)HQL里面可以执行更新语句
+		1)query.executeUpdate

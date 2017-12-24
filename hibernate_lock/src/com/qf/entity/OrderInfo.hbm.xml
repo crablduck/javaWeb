@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- 这个配置文件就可以建立对象和表的关系(ORM) -->
+<!-- 实体类包名 -->
+<hibernate-mapping package="com.qf.entity">
+
+	<class name="OrderInfo" table="t_order">
+		<id name="id" column="id">
+			<!-- 主键生成策略 -->
+			<generator class="native" />
+		</id>
+		
+		<property name="orderName" column="order_name" />
+
+		<!-- 
+			配置多对一 
+			name:多一个一方中保存一的一方的属性名
+		-->
+		<many-to-one name="customer">
+			<!-- 配置两种表的关联外键 -->
+			<column name="customer_id"></column>
+		</many-to-one>
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+
+
+1.Hibernate注解实现方式
+	1)导入jpa的jar包
+	2)工具类中要换成用AnnotationConfiguration去创建sessionFactory
+	3）更新jar包，把sl4j-1.5.8.jar换成sl4j-1.6.0.jar
+	4)注解
+		a)@Entity:实体类
+		b)@Table:表名称
+		c)@Id:主键
+			1)@GeneratedValue
+		d)@Column:属性和列名称不一致的时候要加
+		e)@OneToMany:一对多
+		f)@ManyToOne:多对一
+		g)@JoinColumn:外键
+		
+2.注解和配置那个好？
+	1)注解
+		a)方便不用来回切换
+		b)修改完类后要重新编译
+	b)配置
+		a)修改完后不用编译，可以直接使用
+		b)有利于维护
+
+
+
+周六
+ 1.完成论坛项目
+ 2.发生发帖功能
+ 3.注册功能
+
+本周的知识点的复习(录成语音)
+	1.
+	2.
+	3.
+	4.

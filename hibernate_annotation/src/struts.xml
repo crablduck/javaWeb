@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 动态开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	
+	<package name="topic" namespace="/topic" extends="struts-default">
+		<action name="findTopicList" class="com.qf.action.TopicAction" method="findTopicList">
+			<result>../topiclist.jsp</result>
+		</action>
+		
+		<action name="findTopicById" class="com.qf.action.TopicAction" method="findTopicById">
+			<result>../topicinfo.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="reply" namespace="/reply" extends="struts-default">
+		<action name="replyAdd" class="com.qf.action.ReplyAction" method="replyAdd">
+			<result type="redirectAction">../topic/findTopicById?topic.id=${reply.topic.id}</result>
+			<result name="input">../ok.jsp</result>
+			<result name="login">../login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="login" class="com.qf.action.UserAction" method="login">
+			<result name="login">../login.jsp</result>
+			<result >../index.jsp</result>
+		</action>
+	</package>
+	
+</struts>

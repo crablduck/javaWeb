@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- 这个配置文件就可以建立对象和表的关系(ORM)-->
+<!-- 实体类包名 -->
+<hibernate-mapping package="com.qf.entity">
+
+	<class name="Customer" table="t_customer" >
+		<id name="id" column="id">
+			<!-- 主键生成策略 -->
+			<generator class="native" />
+		</id>
+		
+		<version name="version"/>
+		
+		<property name="name"/>
+		
+		<set name="orderInfos" >
+			<!-- 配置关联表的外键 -->
+			<key column="customer_id"/>
+			<!-- 配置多个的一方的全类名 -->
+			<one-to-many class="com.qf.entity.OrderInfo"/>
+		</set>
+		
+		<!-- 局部命名查询 -->
+		<query name="query1">
+			<![CDATA[
+				select c from Customer c
+			]]>
+		</query>
+	</class>
+	
+		<!-- 全局命名查询 -->
+	<query name="query2">
+	<![CDATA[
+		select c from Customer c where c.id = 3
+			]]>
+	</query>
+
+</hibernate-mapping>

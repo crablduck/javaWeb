@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- 链接数据库的四个参数 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql:///1707_hibernate</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+
+		<!-- 连接池 -->
+		<property name="connection.pool_size">1</property>
+
+		<!-- 数据库方言，用什么数据库就要用什么方言，去etc/下面的hibernate.properties找 -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<!-- session和当前线程绑定 -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- 是否显示sql -->
+		<property name="show_sql">true</property>
+		
+		<!-- 格式化sql -->
+		<property name="format_sql">true</property>
+
+		<!-- DDL,update:如果有表用，没有hibernate帮我们穿件-->
+		<property name="hbm2ddl.auto">update</property>
+
+		<!-- 添加映射文件 -->
+		<mapping resource="com/qf/entity/Customer.hbm.xml" />
+		<mapping resource="com/qf/entity/OrderInfo.hbm.xml" />
+
+	</session-factory>
+
+</hibernate-configuration>

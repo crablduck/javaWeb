@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.qf.entity">
+
+	<class name="User" table="t_user">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		
+		<property name="name"/>
+		<property name="password"/>
+		<property name="isAdmin" column="is_admin"/>
+		
+		<!-- 用户和帖子时候一对多 -->
+		<set name="topics">
+			<key column="user_id"></key>	
+			<one-to-many class="com.qf.entity.Topic"/>
+		</set>
+	
+	</class>
+
+</hibernate-mapping>

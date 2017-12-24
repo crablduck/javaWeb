@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.qf.entity">
+
+	<class name="Topic" table="t_topic">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		
+		<property name="title"/>
+		<property name="content"/>
+		<property name="createDate" column="create_date"/>
+		
+		<!-- 贴子和用户多对一-->
+		<many-to-one name="user">
+			<column name="user_id"></column>
+		</many-to-one>
+		
+		<!-- 帖子和回复是一对多 -->
+		<set name="replies">
+			<key column="topic_id"></key>
+			<one-to-many class="com.qf.entity.Reply"/>
+		</set>
+	
+	</class>
+
+</hibernate-mapping>

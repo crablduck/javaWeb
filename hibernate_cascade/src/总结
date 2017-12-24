@@ -1,0 +1,10 @@
+
+
+1.级联属性
+	1)save-update
+		a)保存一的一方多的一方自动保存
+	2)delete
+		a)删除一的一方同时如果有多的一方也有数据也删除
+	3)delete-orphan(孤儿删除)
+		a)删除和当前对象解除关系的对象
+	4)常用的是all(save-update+delete)

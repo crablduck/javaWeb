@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- 这个配置文件就可以建立对象和表的关系(ORM)-->
+<!-- 实体类包名 -->
+<hibernate-mapping package="com.qf.entity">
+
+	<!-- 
+		name:实体类名
+		table:表名称
+	 -->
+	<class name="User" table="t_user">
+		<!--
+			id属性要用id标签
+			name:对象中的名字
+			column：表中的名字
+		-->
+		<id name="id" column="id">
+			<!-- 主键生成策略 -->
+			<generator class="native" />
+		</id>
+		
+		<!-- 
+			其他属性用 property
+			如果entity中的属性名称和表中的字段名称一致，column属性可以不加
+		-->
+		<property name="name"/>
+		<property name="password"/>
+		<property name="isAdmin" column="is_admin"/>
+		
+	</class>
+
+</hibernate-mapping>

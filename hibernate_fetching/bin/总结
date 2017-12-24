@@ -1,0 +1,23 @@
+
+
+1.抓取策略
+	1)类级别的抓取
+		a)load
+			1)懒加载机制，可以控制这种机制。加一个lazy=false
+	2)关联级别的抓取(了解)
+		a)fetch:决定以什么样的方式查询
+			1)select
+			2)join
+			3)subseelct
+		b)lazy:赖的程度
+			1)true
+			2)false
+			3)extra--极其懒惰
+	
+2.HQL
+	1)面向对象的查询语言
+	2)在hibernate里面查询的
+	3)可以查询返回一个list
+3.批量查询
+	1)每次查询N个客户的订单
+	2)在映射文件中的set标签里面加一个batch-size=n

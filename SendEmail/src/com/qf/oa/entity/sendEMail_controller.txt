@@ -1,0 +1,12 @@
+    @RequestMapping(value="/sendEmail")
+    public void sendEmail(Email email, HttpServletResponse response){
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            SendEmail.SendEmailInfoUser(email.getSendAddress(), email.getTitle(), email.getContent(), email.getCopysendAddress());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }

@@ -1,0 +1,9 @@
+1. 获取授权码，https://jingyan.baidu.com/article/9faa72318b76bf473c28cbf7.html
+
+2. 导入jar,  实体类， 阅读实体类属性
+
+3. 以上两部完成就，创建utils包， 导入sendEmail进行测试
+
+4. 成功后将SendEmail_controller中的代码 放到自己想添加功能的Controller 中， 
+
+然后前端页面添加页面， 再设置好链接就可以， 这里是实现的发送邮件， 其他的可以再此基础上进行添加。
